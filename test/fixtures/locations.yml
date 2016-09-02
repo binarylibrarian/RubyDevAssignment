@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  latitude: 1.5
-  longitude: 1.5
+  name: Toronto
+  latitude: 43.65
+  longitude: 79.38
 
 two:
-  name: MyString
-  latitude: 1.5
-  longitude: 1.5
+  name: Hamilton
+  latitude: 43.25
+  longitude: 79.86

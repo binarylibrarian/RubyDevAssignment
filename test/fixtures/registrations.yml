@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: 
-  event_id: 
+  user: ian
+  event: event1
 
 two:
-  user_id: 
-  event_id: 
+  user: bob
+  event: event1
+
+three:
+  user: tom
+  event: event3

@@ -1,15 +1,30 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user_id: 
-  name: MyString
-  description: MyText
-  start_at: 2016-08-31 13:34:51
-  finish_at: 2016-08-31 13:34:51
+event1:
+  user: ian
+  name: Event 1
+  description: This is a description of Event 1
+  start_at: 2016-08-31 13:30:00
+  finish_at: 2016-08-31 18:30:00
+  location: ["Toronto"]
+  topics: [music, rock]
+  messages: [{"user_id":1,"msg":"I love rock and roll"},{"user_id":2,"msg":"This band is great"}]
 
-two:
-  user_id: 
-  name: MyString
-  description: MyText
-  start_at: 2016-08-31 13:34:51
-  finish_at: 2016-08-31 13:34:51
+event2:
+  user: ian
+  name: Event 2
+  description: This is a description of a second event
+  start_at: 2016-09-31 17:00:00
+  finish_at: 2016-09-31 20:00:00
+  location: ["Toronto"]
+  topics: [movie, horror]
+  messages: [{"user_id":1,"msg":"Sci-fi is more my thing"},{"user_id":4,"msg":"I'm more a sports guy"}]
+
+event3:
+  user: bob
+  name: Event 3
+  description: This is a description of a third event
+  start_at: 2016-09-02 16:30:00
+  finish_at: 2016-09-02 19:00:00
+  location: ["Hamilton"]
+  topics: [music, folk]
