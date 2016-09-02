@@ -9,6 +9,17 @@ Rails.application.routes.draw do
   end
   resources :events, only: [:index, :show]
 
+  namespace :api do
+    namespace :v1 do
+      resources :events, only: [:index, :show] do
+        member do
+          get :messages
+          get :registrants
+        end
+      end
+    end
+  end
+
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   # The priority is based upon order of creation: first created -> highest priority.
