@@ -30,6 +30,10 @@ If no other monitoring infrastrcture exists the ELK stack provides a relatively 
 
 The application would consist of a number of pieces outlines above. The primary component is a fairly traditional Rails application. It would run on a number of app servers behind a Nginx load balancer. The Nginx instance would serve cached static content such as css, html, and javascript. The primary backend for the application is a Postgres database. Search functionality would be provided by a dedicated Elasticsearch database that would sync with the Postgres database. Images for profile and event pictures are stored in AWS S3. Logging is managed by the an instance of the ELK stack running a seperate instance of Elasticsearch. Logs are processed with a simple grep filter on the logs from both Nginx and the app instances.
 
+![diagram](/event_architecture.jpeg?raw=true "Software Architecture")
+
 ##Database Format
 
 Given the traditional structured relationships between the data, Events, Users, Registrations, etc, I chose a standard SQL database (Postgres). That said some aspects of the application may suffer under a traditionally normalized SQL database. Postgres offers, and ActiveRecord supports a the field format JSONB which allows for the storage and querying of json formated data. This seem apropriate for a number of the fields on the Event model. Messages on events seemed an ideal canidate since the information is unlikely to be used outside of the Events details page. That said the use of JSONB allows for querying based on user_id as well if the need were to arise. Location information is also stored on as JSONB for noSQL like querying, a locations table also exists to facilitate the creation of a listing of connonical locations for selection and display on a map. An Organizer table exists to differentiate between Event creator/owners and organizers.
+
+![diagram](/event_schema.jpeg?raw=true "Software Architecture")
