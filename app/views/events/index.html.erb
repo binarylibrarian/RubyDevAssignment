@@ -1,0 +1,14 @@
+<h1>Events#index</h1>
+<table class="hover highlight-queue">
+
+  <tbody>
+  <%@events.each do |event|%>
+          <tr>
+            <td>
+              <%= link_to event.name, event_path(event) %>
+            </td>
+          </tr>
+  <% end %>
+  </tbody>
+</table>
+

@@ -1,0 +1,9 @@
+<h1>Events#show</h1>
+<%=@event.name%>
+<p><%=@event.description%></p>
+<%if current_user && !is_registered?(@registrations)%>
+  <%= link_to 'register', register_event_path, method: :patch %>
+<%end%>
+<%@registrations.each do |reg|%>
+
+<%end%>
