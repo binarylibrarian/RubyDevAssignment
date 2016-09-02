@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902130921) do
+ActiveRecord::Schema.define(version: 20160902151426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20160902130921) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.jsonb    "messages"
+    t.jsonb    "topics"
+    t.jsonb    "location"
   end
 
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
@@ -47,6 +49,16 @@ ActiveRecord::Schema.define(version: 20160902130921) do
 
   add_index "messages", ["event_id"], name: "index_messages_on_event_id", using: :btree
   add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
+
+  create_table "organizers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "organizers", ["event_id"], name: "index_organizers_on_event_id", using: :btree
+  add_index "organizers", ["user_id"], name: "index_organizers_on_user_id", using: :btree
 
   create_table "registrations", force: :cascade do |t|
     t.integer  "user_id"
@@ -82,6 +94,8 @@ ActiveRecord::Schema.define(version: 20160902130921) do
   add_foreign_key "events", "users"
   add_foreign_key "messages", "events"
   add_foreign_key "messages", "users"
+  add_foreign_key "organizers", "events"
+  add_foreign_key "organizers", "users"
   add_foreign_key "registrations", "events"
   add_foreign_key "registrations", "users"
 end
