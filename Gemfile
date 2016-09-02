@@ -29,6 +29,10 @@ gem 'devise'
 # Postgres for database
 gem 'pg'
 
+# Elastic Search for full text search of Event descriptions
+gem 'elasticsearch-rails'
+gem 'elasticsearch-model'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
