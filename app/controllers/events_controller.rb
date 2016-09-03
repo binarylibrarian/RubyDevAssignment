@@ -2,8 +2,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy, :register]
 
   def index
-    # @events = Event.all
-    @events = Event.filter(params.slice(:topics,:location,:start))
+    @events = Event.all
   end
 
   def show
@@ -61,8 +60,4 @@ end
 
 def event_params
   params.require(:event).permit(:name, :start_at, :finish_at, :description)
-end
-
-def topics
-  params[:topics].slice
 end
