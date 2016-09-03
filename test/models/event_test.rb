@@ -7,8 +7,12 @@ class EventTest < ActiveSupport::TestCase
   end
 
   test "search should return resuts" do
-    result = Event.search 'music'
-    assert result.count > 0
+    begin
+      result = Event.search 'music'
+      assert result.count > 0
+    rescue
+      assert false, "Could not connect to Elasticsearch"
+    end
   end
 
   test "event should have messages from user" do
